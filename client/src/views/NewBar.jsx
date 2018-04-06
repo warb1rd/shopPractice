@@ -22,7 +22,6 @@ class NewBar extends Component {
   onFormSubmit(evt) {
     evt.preventDefault()
     httpClient.createBar(this.state.fields).then((apiResponse) => {
-        console.log(apiResponse.data)
         this.props.history.push("/bars")
     })
 }

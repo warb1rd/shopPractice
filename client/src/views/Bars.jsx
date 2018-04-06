@@ -8,7 +8,6 @@ class Bars extends Component{                               //Create a Bars clas
 
 	componentDidMount(){
         httpClient.getBars().then((apiResponse) => {
-            console.log(apiResponse.data)
             this.setState({
                 bars: apiResponse.data
             })
