@@ -13,7 +13,7 @@ const NavBar = (props) => {
 					<span>
 						<Link to="/vip">VIP</Link>
 						<Link to="/logout">LOGOUT</Link>
-						<Link to="/bars/newbar">NEW BAR</Link>						
+						<Link to="/bars/new">NEW BAR</Link>						
 					</span>
 				)
 				: (
