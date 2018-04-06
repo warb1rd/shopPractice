@@ -61,6 +61,10 @@ httpClient.createBar = function (barInfo){
     return this({method: "post", url: "/api/bars", data: barInfo})
 }
 
+httpClient.deleteBar = function (id){
+    return this({method: "delete", url: `/api/bars/${id}`})
+}
+
 // During initial app load attempt to set a localStorage stored token
 // as a default header for all api requests.
 httpClient.defaults.headers.common.token = httpClient.getToken()

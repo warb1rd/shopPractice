@@ -12,7 +12,13 @@ barsRouter.use(verifyToken)                                                     
 
 barsRouter.post("/", (req, res) => {
     Bar.create({...req.body, user: req.user}, (err, newBar) => {                    //new bar will be created that includes all fields from form and a USER KEY which is the current user
-        res.json({success: true, message: "new bar opened ", bar: newBar})                                                            //spread the body of the request in a new object that also includes the user
+        res.json({success: true, message: "new bar opened ", bar: newBar})          //spread the body of the request in a new object that also includes the user
+    })
+})
+
+barsRouter.delete("/:id", (req, res) => {
+    Bar.findByIdAndRemove(req.params.id, (err, bar) => {
+        res.json({success: true, message: "bar deleted.", bar})
     })
 })
 
