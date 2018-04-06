@@ -54,6 +54,13 @@ httpClient.logOut = function() {
 	delete this.defaults.headers.common.token
 	return true
 }
+httpClient.getBars = function(){
+	return this({method: "get", url: "/api/bars"})										//apis/bars is something we use in the backend which is used in front end
+}
+
+httpClient.createBar = function (barInfo){
+    return this({method: "post", url: "/api/bars", data: barInfo})
+}
 
 // During initial app load attempt to set a localStorage stored token
 // as a default header for all api requests.

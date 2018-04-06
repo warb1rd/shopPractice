@@ -8,6 +8,8 @@ import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
 import VIP from './views/VIP'
 import Home from './views/Home'
+import Bars from './views/Bars.jsx'
+import NewBar from './views/NewBar.jsx'
 
 class App extends React.Component {
 	state = { currentUser: httpClient.getCurrentUser() }
@@ -42,6 +44,16 @@ class App extends React.Component {
 					<Route path="/signup" render={(props) => {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
+
+					<Route path="/bars/new" render={(routeProps) => {
+						return currentUser
+							? <NewBar {...routeProps}/>
+							: <Redirect to="/login" />
+					}} />
+
+					{/* <Route path="/bars/new" component={NewBar}/> */}
+					<Route path="/bars" component={Bars}/>
+					
 
 					<Route path="/vip" render={() => {
 						return currentUser

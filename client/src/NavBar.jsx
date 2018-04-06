@@ -2,20 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
+
 	return (
 		<div className='NavBar'>
-			<Link to="/">Home</Link>
+			<Link to="/">HOME</Link>
+			<Link to="/bars">BARS</Link>						
+			
 			{props.currentUser
 				? (
 					<span>
 						<Link to="/vip">VIP</Link>
-						<Link to="/logout">Log Out</Link>
+						<Link to="/logout">LOGOUT</Link>
+						<Link to="/bars/newbar">NEW BAR</Link>						
 					</span>
 				)
 				: (
 					<span>
-						<Link to="/login">Log In</Link>
-						<Link to="/signup">Sign Up</Link>
+						<Link to="/login">LOG IN</Link>
+						<Link to="/signup">SIGN UP</Link>
 					</span>
 				)
 			}
