@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import httpClient from "../httpClient.js"
 
-class NewBar extends Component {
+class NewItem extends Component {
 
   state = {
     fields: { 
@@ -21,8 +21,8 @@ class NewBar extends Component {
   
   onFormSubmit(evt) {
     evt.preventDefault()
-    httpClient.createBar(this.state.fields).then((apiResponse) => {
-        this.props.history.push("/bars")
+    httpClient.createItem(this.state.fields).then((apiResponse) => {
+        this.props.history.push("/items")
     })
 }
 
@@ -30,7 +30,7 @@ class NewBar extends Component {
     const { name, address } = this.state.fields 
     return (
       <div className="NewBar">
-        <h1>Add A Bar</h1>
+        <h1>Add Item</h1>
         <form onChange={this.handleFormChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
           <input name="name" type="text" placeholder="Name" value={name} />
           <input name="address" type="text" placeholder="Address" value={address} />
@@ -41,4 +41,4 @@ class NewBar extends Component {
   }
 }
 
-export default NewBar
+export default NewItem

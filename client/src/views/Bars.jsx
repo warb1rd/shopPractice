@@ -1,26 +1,26 @@
 import React, {Component} from "react";
 import httpClient from "../httpClient"
 
-class Bars extends Component{                                                                                   //Create a Bars class that extents component with a render method that returns a div
+class Items extends Component{                                                                                   //Create a Items class that extents component with a render method that returns a div
     state = { 
-        bars: [],
+        items: [],
         currentUser: httpClient.getCurrentUser()
 	}
 
 	componentDidMount(){
-        httpClient.getBars().then((apiResponse) => {
+        httpClient.getItems().then((apiResponse) => {
             this.setState({
-                bars: apiResponse.data
+                items: apiResponse.data
             })
         })
     }
     
     handleDelete(id){
         let { history } = this.props
-        httpClient.deleteBar(id).then((apiResponse) => {
+        httpClient.deleteItem(id).then((apiResponse) => {
         console.log(history)
         this.setState({
-            bars: this.state.bars.filter((b) => {
+            items: this.state.items.filter((b) => {
                 return b._id !== id  
             })
         })
@@ -29,12 +29,12 @@ class Bars extends Component{                                                   
     }
 
     render(){
-        const { bars, currentUser } = this.state
+        const { items, currentUser } = this.state
         return(
-            <div className="Bars">
-            <h1>BAR LIST</h1>
+            <div className="Items">
+            <h1>ITEM LIST</h1>
             <ul>
-            {bars.map((b) => {
+            {items.map((b) => {
                 return(
                 <li key={b._id}>{b.name} - {b.user.name}{currentUser && <span><button onClick={this.handleDelete.bind(this,b._id)}>delete</button></span>}</li>
                 )
@@ -45,4 +45,4 @@ class Bars extends Component{                                                   
     }
 }
 
-export default Bars
+export default Items

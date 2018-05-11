@@ -4,22 +4,23 @@ import { Link } from 'react-router-dom'
 const NavBar = (props) => {
 
 	return (
-		<div className='NavBar'>
-			<Link to="/">HOME</Link>
-			<Link to="/bars">BARS</Link>						
+		<div id="navbar" className='NavBar'>
+			<Link to="/"> <i className="fa fa-angle-left"> </i> </Link>
+			<Link to="/" className="nav active"> HOME </Link>
+			<Link to="/items">SHOP</Link>						
 			
 			{props.currentUser
 				? (
 					<span>
-						<Link to="/vip">VIP</Link>
-						<Link to="/logout">LOGOUT</Link>
-						<Link to="/bars/new">NEW BAR</Link>						
+						{/* <Link to="/vip">VIP</Link> */}
+						<Link to="/logout" className="nav" >LOGOUT</Link>
+						<Link to="/items/new" className="nav">CHECKOUT</Link>						
 					</span>
 				)
 				: (
 					<span>
-						<Link to="/login">LOG IN</Link>
-						<Link to="/signup">SIGN UP</Link>
+						<Link to="/login" className="nav">LOG IN</Link>
+						<Link to="/signup" className="nav">SIGN UP</Link>
 					</span>
 				)
 			}

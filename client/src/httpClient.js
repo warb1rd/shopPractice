@@ -53,16 +53,16 @@ httpClient.logOut = function() {
 	delete this.defaults.headers.common.token
 	return true
 }
-httpClient.getBars = function(){
-	return this({method: "get", url: "/api/bars"})										//apis/bars is something we use in the backend which is used in front end
+httpClient.getItems = function(){
+	return this({method: "get", url: "/api/items"})										//apis/items is something we use in the backend which is used in front end
 }
 
-httpClient.createBar = function (barInfo){
-    return this({method: "post", url: "/api/bars", data: barInfo})
+httpClient.createItem = function (itemInfo){
+    return this({method: "post", url: "/api/items", data: itemInfo})
 }
 
-httpClient.deleteBar = function (id){
-    return this({method: "delete", url: `/api/bars/${id}`})
+httpClient.deleteItem = function (id){
+    return this({method: "delete", url: `/api/items/${id}`})
 }
 
 // During initial app load attempt to set a localStorage stored token
